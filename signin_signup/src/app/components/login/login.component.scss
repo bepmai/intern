@@ -1,0 +1,26 @@
+form {
+    width: 80%;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+button{
+    border: none;
+    background-color: white;
+}
+@media (max-width: 600px) {
+    .container-text{
+        font-size: 11px;
+    }
+    .text-error-email{
+        position: relative;
+        right: 80px;
+    }
+}
+div {
+    .text-danger{
+        margin-bottom: 15px;
+        margin-top: -20px;
+    }
+}
+  
