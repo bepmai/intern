@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  private users = [
-    { email: 'mainguyenphuong04@gmail.com', password: '230304' } 
-  ];
+  private users = [{ email: 'bep23@gmail.com', password: '230304' }];
 
   login(email: string, password: string): string | null {
-    const user = this.users.find(u => u.email === email);
+    const user = this.users.find((u) => u.email === email);
     if (!user) {
-      return null; 
+      return null;
     }
     if (user.password === password) {
-      return 'mock-token'; 
+      const token = 'mock-token';
+      localStorage.setItem('token', token);
+      return token;
     }
-    return null; 
+    return null;
   }
-  
+
   isAuthenticated(): boolean {
     return !!localStorage.getItem('token');
   }

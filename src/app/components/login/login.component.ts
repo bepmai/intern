@@ -53,6 +53,7 @@ export class LoginComponent {
     const token = this.authService.login(email, password);
     if (token) {
       this.loginError = null;
+      localStorage.setItem('token', token);
       console.log('Đăng nhập thành công', this.loginForm.value);
       this.router.navigate(['/home']);
     } else {
