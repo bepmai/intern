@@ -20,7 +20,7 @@
               loginForm['controls']['email'].touched &&
               loginForm['controls']['email'].errors
             "
-            class="text-danger fs-5"
+            class="text-danger fs-5 text-size"
           >
             <small *ngIf="loginForm['controls']['email'].errors['required']"
               >Email không được để trống</small
@@ -58,7 +58,7 @@
             "
             class="text-danger fs-5"
           >
-            <small *ngIf="loginForm['controls']['password'].errors['required']"
+            <small class="text-size" *ngIf="loginForm['controls']['password'].errors['required']"
               >Password không được để trống</small
             >
           </div>
