@@ -17,7 +17,12 @@ button {
     right: 80px;
   }
   .error-message {
-    font-size: 9px;
+    font-size: 10px;
+  }
+  div{
+    .text-danger{
+      font-size: 15px;
+    }
   }
 }
 div {
