@@ -22,10 +22,10 @@
             "
             class="text-danger fs-5 text-size"
           >
-            <small *ngIf="loginForm['controls']['email'].errors['required']"
+            <small class="text-size" *ngIf="loginForm['controls']['email'].errors['required']"
               >Email không được để trống</small
             >
-            <small *ngIf="loginForm['controls']['email'].errors['email']"
+            <small class="text-size" *ngIf="loginForm['controls']['email'].errors['email']"
               >Email chưa đúng định dạng</small
             >
           </div>
