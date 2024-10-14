@@ -36,14 +36,18 @@
     }
     .control_panel .col{
         svg{
-            font-size: 10px;
+            height: 30px;
+            width: 30px;
+        }
+        .time-answer{
+            font-size: 15px;
         }
     }
     .btn-number-question {
       display: grid;
       justify-content: center;
       gap: 4px;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
   
     .btn-number-question .btn {
