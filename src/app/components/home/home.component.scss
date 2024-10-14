@@ -34,19 +34,16 @@
         width: 103%;
         height: auto;
     }
-    .control_panel .col {
-      flex: 1;  
-      text-align: center;
-    }
-    .control_panel .col svg{
-        height: 30px;
-        width: 30px;
+    .control_panel .col{
+        svg{
+            font-size: 10px;
+        }
     }
     .btn-number-question {
       display: grid;
       justify-content: center;
       gap: 4px;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
     }
   
     .btn-number-question .btn {
@@ -58,11 +55,12 @@
       font-size: 0.8em;
     }
     .btn-submit{
+        margin-top: 125px;
         width: 20px;
         margin-left: -15px;
     }
     .question{
-        margin-top: 250px;
+        margin-top: 650px;
     }
 }
   

@@ -77,29 +77,29 @@ export class HomeComponent implements OnInit {
       console.error('Modal element not found');
     }
   }
-  
+
   confirmSubmit() {
     clearInterval(this.countdownInterval);
-    
+
     const modalElement = document.getElementById('confirmModal');
     if (modalElement) {
       const confirmModal = bootstrap.Modal.getInstance(modalElement);
       if (confirmModal) {
-        confirmModal.hide();  
+        confirmModal.hide();
       }
     }
-  
+
     const modalBackdrops = document.getElementsByClassName('modal-backdrop');
     while (modalBackdrops.length > 0) {
       modalBackdrops[0].parentNode?.removeChild(modalBackdrops[0]);
     }
-  
+
     this.score = this.examService.checkAnswers();
     console.log(`User's score: ${this.score}`);
-    
+
     this.router.navigate(['/result'], { queryParams: { score: this.score } });
-  }  
-   
+  }
+
   LogOut() {
     this.authService.logout();
     this.router.navigate(['/']);
