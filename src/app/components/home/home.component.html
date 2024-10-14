@@ -1,0 +1,1240 @@
+<div
+  class="container-fluid bg-light"
+  style="
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+      sans-serif;
+  "
+>
+  <!-- <div *ngIf="isLoading" class="d-flex justify-content-center align-items-center w-100 vh-100">
+    <div class="spinner-grow text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-secondary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-success" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-dark" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div> -->
+  <div *ngIf="!isLoading">
+    <div class="container">
+      <div class="row bg-white shadow bg-body-tertiary rounded control_panel">
+        <div class="col text-center">
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            class="bi bi-stopwatch"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"
+            />
+            <path
+              d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64l.012-.013.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5M8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3"
+            />
+          </svg>
+          <div class="mt-3 mb-5">
+            <span style="font-size: 20px"
+              >Time: {{ countdownTime }} s</span
+            >
+          </div>
+
+          <div class="mt-3 mb-5">
+            <span style="font-size: 20px"
+              >Question: {{ completedQuestions }}</span
+            >
+          </div>
+        </div>
+
+        <div class="col btn-number-question">
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[0] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(1)"
+            >
+              1
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[1] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(2)"
+            >
+              2
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[2] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(3)"
+            >
+              3
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[3] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(4)"
+            >
+              4
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[4] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(5)"
+            >
+              5
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[5] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(6)"
+            >
+              6
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[6] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(7)"
+            >
+              7
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[7] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(8)"
+            >
+              8
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[8] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(9)"
+            >
+              9
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[9] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(10)"
+            >
+              10
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[10] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(11)"
+            >
+              11
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[11] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(12)"
+            >
+              12
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[12] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(13)"
+            >
+              13
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[13] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(14)"
+            >
+              14
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[14] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(15)"
+            >
+              15
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[15] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(16)"
+            >
+              16
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[16] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(17)"
+            >
+              17
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[17] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(18)"
+            >
+              18
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[18] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(19)"
+            >
+              19
+            </button>
+            <button
+              type="button"
+              class="btn"
+              [ngClass]="
+                answeredQuestions[19] ? 'btn-success' : 'btn-outline-dark'
+              "
+              (click)="scrollToQuestion(20)"
+            >
+              20
+            </button>
+        </div>
+
+        <div class="col btn-submit">
+            <button
+            type="button"
+            class="btn btn-danger mt-5" 
+            data-bs-toggle="modal"
+            data-bs-target="#confirmModal"
+          >
+            Submit 
+          </button>
+        </div>
+      </div>
+      <!-- Modal xác nhận - hết thời gian -->
+      <div
+      class="modal fade"
+      id="confirmModal_endtime"
+      tabindex="-1"
+      aria-labelledby="confirmModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmModalLabel">
+              Confirmation of submission 
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            You have run out of time !
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="confirmSubmit()"
+            >
+             Submit
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- Modal xác nhận - nộp-->
+      <div
+      class="modal fade"
+      id="confirmModal"
+      tabindex="-1"
+      aria-labelledby="confirmModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmModalLabel">
+              Confirmation of submission 
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to stop the test ?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="confirmSubmit()"
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!-- Question  -->
+      <div class="row question">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-7">
+          <div id="question1" class="row mt-5">
+            <p>1. Where are you form ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q1"
+                id="q1a"
+                (change)="updateCompletedQuestions(0, 'A')"
+              />
+              <label class="form-check-label">A. 9</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q1"
+                id="q1b"
+                (change)="updateCompletedQuestions(0, 'B')"
+              />
+              <label class="form-check-label">B. Ha Noi</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q1"
+                id="q1c"
+                (change)="updateCompletedQuestions(0, 'C')"
+              />
+              <label class="form-check-label">C. Keo Pagoda</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q1"
+                id="q1d"
+                (change)="updateCompletedQuestions(0, 'D')"
+              />
+              <label class="form-check-label">D. Hoan Kiem Lake</label>
+            </div>
+          </div>
+          <div id="question2" class="row mt-3">
+            <p>2. What is the capital of the USA ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2"
+                id="q2a"
+                (change)="updateCompletedQuestions(1, 'A')"
+              />
+              <label class="form-check-label">A. London</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2"
+                id="q2b"
+                (change)="updateCompletedQuestions(1, 'B')"
+              />
+              <label class="form-check-label">B. Paris</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2"
+                id="q2c"
+                (change)="updateCompletedQuestions(1, 'C')"
+              />
+              <label class="form-check-label">C. Washington, D.C</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q2"
+                id="q2d"
+                (change)="updateCompletedQuestions(1, 'D')"
+              />
+              <label class="form-check-label">D. Berlin</label>
+            </div>
+          </div>
+          <div id="question3" class="row mt-3">
+            <p>
+              3. Choose the correct form of the verb: She ______ to the store
+              every Saturday ?
+            </p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q3"
+                id="q3a"
+                (change)="updateCompletedQuestions(2, 'A')"
+              />
+              <label class="form-check-label">A. go</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q3"
+                id="q3b"
+                (change)="updateCompletedQuestions(2, 'B')"
+              />
+              <label class="form-check-label">B. goes</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q3"
+                id="q3c"
+                (change)="updateCompletedQuestions(2, 'C')"
+              />
+              <label class="form-check-label">C. going</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q3"
+                id="q3d"
+                (change)="updateCompletedQuestions(2, 'D')"
+              />
+              <label class="form-check-label">D. went</label>
+            </div>
+          </div>
+          <div id="question4" class="row mt-3">
+            <p>4. Which word is a noun ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q4"
+                id="q4a"
+                (change)="updateCompletedQuestions(3, 'A')"
+              />
+              <label class="form-check-label">A. Quickly</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q4"
+                id="q4b"
+                (change)="updateCompletedQuestions(3, 'B')"
+              />
+              <label class="form-check-label">B. Beautiful</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q4"
+                id="q4c"
+                (change)="updateCompletedQuestions(3, 'C')"
+              />
+              <label class="form-check-label">C. Happiness</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q4"
+                id="q4d"
+                (change)="updateCompletedQuestions(3, 'D')"
+              />
+              <label class="form-check-label">D. Run</label>
+            </div>
+          </div>
+          <div id="question5" class="row mt-3">
+            <p>5. What is the opposite of "hot" ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q5"
+                id="q5a"
+                (change)="updateCompletedQuestions(4, 'A')"
+              />
+              <label class="form-check-label">A. Warm</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q5"
+                id="q5a"
+                (change)="updateCompletedQuestions(4, 'B')"
+              />
+              <label class="form-check-label">B. Cold</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q5"
+                id="q5c"
+                (change)="updateCompletedQuestions(4, 'C')"
+              />
+              <label class="form-check-label">C. Cool</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q5"
+                id="q5a"
+                (change)="updateCompletedQuestions(4, 'D')"
+              />
+              <label class="form-check-label">D. Freezing</label>
+            </div>
+          </div>
+          <div id="question6" class="row mt-3">
+            <p>6. Fill in the blank: I have ______ apples in my basket ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q6"
+                id="q6a"
+                (change)="updateCompletedQuestions(5, 'A')"
+              />
+              <label class="form-check-label">A. much</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q6"
+                id="q6b"
+                (change)="updateCompletedQuestions(5, 'B')"
+              />
+              <label class="form-check-label">B. many</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q6"
+                id="q6c"
+                (change)="updateCompletedQuestions(5, 'C')"
+              />
+              <label class="form-check-label">C. a</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q6"
+                id="q6d"
+                (change)="updateCompletedQuestions(5, 'D')"
+              />
+              <label class="form-check-label">D. more</label>
+            </div>
+          </div>
+          <div id="question7" class="row mt-3">
+            <p>7. What time do you usually wake up ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q7"
+                id="q7a"
+                (change)="updateCompletedQuestions(6, 'A')"
+              />
+              <label class="form-check-label">A. I wake up at 7 o'clock.</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q7"
+                id="q7b"
+                (change)="updateCompletedQuestions(6, 'B')"
+              />
+              <label class="form-check-label">B. I usually waking up.</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q7"
+                id="q7c"
+                (change)="updateCompletedQuestions(6, 'C')"
+              />
+              <label class="form-check-label">C. I up wake usually at.</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q7"
+                id="q7d"
+                (change)="updateCompletedQuestions(6, 'D')"
+              />
+              <label class="form-check-label">D. I waking up at 7.</label>
+            </div>
+          </div>
+          <div id="question8" class="row mt-3">
+            <p>
+              8. Choose the correct preposition: She is interested ______
+              learning French.
+            </p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q8"
+                id="q8a"
+                (change)="updateCompletedQuestions(7, 'A')"
+              />
+              <label class="form-check-label">A. at</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q8"
+                id="q8b"
+                (change)="updateCompletedQuestions(7, 'B')"
+              />
+              <label class="form-check-label">B. in</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q8"
+                id="q8c"
+                (change)="updateCompletedQuestions(7, 'C')"
+              />
+              <label class="form-check-label">C. on</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q8"
+                id="q8d"
+                (change)="updateCompletedQuestions(7, 'D')"
+              />
+              <label class="form-check-label">D. about</label>
+            </div>
+          </div>
+          <div id="question9" class="row mt-3">
+            <p>9. Which sentence is correct ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q9"
+                id="q9a"
+                (change)="updateCompletedQuestions(8, 'A')"
+              />
+              <label class="form-check-label">A. He don't like pizza.</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q9"
+                id="q9a"
+                (change)="updateCompletedQuestions(8, 'B')"
+              />
+              <label class="form-check-label">B. He doesn't likes pizza.</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q9"
+                id="q9a"
+                (change)="updateCompletedQuestions(8, 'C')"
+              />
+              <label class="form-check-label">C. He doesn't like pizza.</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q9"
+                id="q9a"
+                (change)="updateCompletedQuestions(8, 'D')"
+              />
+              <label class="form-check-label">D. He not like pizza.</label>
+            </div>
+          </div>
+          <div id="question10" class="row mt-3">
+            <p>10. What is the past tense of "go" ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q10"
+                id="q10a"
+                (change)="updateCompletedQuestions(9, 'A')"
+              />
+              <label class="form-check-label">A. goes</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q10"
+                id="q10b"
+                (change)="updateCompletedQuestions(9, 'B')"
+              />
+              <label class="form-check-label">B. went</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q10"
+                id="q10c"
+                (change)="updateCompletedQuestions(9, 'C')"
+              />
+              <label class="form-check-label">C. going</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q10"
+                id="q10d"
+                (change)="updateCompletedQuestions(9, 'D')"
+              />
+              <label class="form-check-label">D. gone</label>
+            </div>
+          </div>
+          <div id="question11" class="row mt-3">
+            <p>11. Fill in the blank: They ______ to the beach last weekend.</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q11"
+                id="q11a"
+                (change)="updateCompletedQuestions(10, 'A')"
+              />
+              <label class="form-check-label">A. go</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q11"
+                id="q11a"
+                (change)="updateCompletedQuestions(10, 'B')"
+              />
+              <label class="form-check-label">B. went</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q11"
+                id="q11a"
+                (change)="updateCompletedQuestions(10, 'C')"
+              />
+              <label class="form-check-label">C. gone</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q11"
+                id="q11a"
+                (change)="updateCompletedQuestions(10, 'D')"
+              />
+              <label class="form-check-label">D. going</label>
+            </div>
+          </div>
+          <div id="question12" class="row mt-3">
+            <p>12. Which word means the same as "happy" ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q12"
+                id="q12a"
+                (change)="updateCompletedQuestions(11, 'A')"
+              />
+              <label class="form-check-label">A. Sad</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q12"
+                id="q12a"
+                (change)="updateCompletedQuestions(11, 'B')"
+              />
+              <label class="form-check-label">B. Joyful</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q12"
+                id="q12a"
+                (change)="updateCompletedQuestions(11, 'C')"
+              />
+              <label class="form-check-label">C. Angry</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q12"
+                id="q12a"
+                (change)="updateCompletedQuestions(11, 'D')"
+              />
+              <label class="form-check-label">D. Tired</label>
+            </div>
+          </div>
+          <div id="question13" class="row mt-3">
+            <p>13. Choose the correct article: She is ______ engineer</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q13"
+                id="q13a"
+                (change)="updateCompletedQuestions(12, 'A')"
+              />
+              <label class="form-check-label">A. a</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q13"
+                id="q13a"
+                (change)="updateCompletedQuestions(12, 'B')"
+              />
+              <label class="form-check-label">B. an</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q13"
+                id="q13a"
+                (change)="updateCompletedQuestions(12, 'C')"
+              />
+              <label class="form-check-label">C. the</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q13"
+                id="q13a"
+                (change)="updateCompletedQuestions(12, 'D')"
+              />
+              <label class="form-check-label">D. no article</label>
+            </div>
+          </div>
+          <div id="question14" class="row mt-3">
+            <p>14. What is the plural of "child" ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q14"
+                id="q14a"
+                (change)="updateCompletedQuestions(13, 'A')"
+              />
+              <label class="form-check-label">A. Childs</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q14"
+                id="q14b"
+                (change)="updateCompletedQuestions(13, 'B')"
+              />
+              <label class="form-check-label">B. Children</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q14"
+                id="q14c"
+                (change)="updateCompletedQuestions(13, 'C')"
+              />
+              <label class="form-check-label">C. Childrens</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q14"
+                id="q14d"
+                (change)="updateCompletedQuestions(13, 'D')"
+              />
+              <label class="form-check-label">D. Childer</label>
+            </div>
+          </div>
+          <div id="question15" class="row mt-3">
+            <p>15. Which sentence is a question ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q15"
+                id="q15a"
+                (change)="updateCompletedQuestions(14, 'A')"
+              />
+              <label class="form-check-label"
+                >A. You are coming to the party.</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q15"
+                id="q15b"
+                (change)="updateCompletedQuestions(14, 'B')"
+              />
+              <label class="form-check-label"
+                >B. Are you coming to the party?</label
+              >
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q15"
+                id="q15c"
+                (change)="updateCompletedQuestions(14, 'C')"
+              />
+              <label class="form-check-label">C. Coming to the party.</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q15"
+                id="q15d"
+                (change)="updateCompletedQuestions(14, 'D')"
+              />
+              <label class="form-check-label"
+                >D. You coming to the party ?</label
+              >
+            </div>
+          </div>
+          <div id="question16" class="row mt-3">
+            <p>16. What is the opposite of "big" ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q16"
+                id="q16a"
+                (change)="updateCompletedQuestions(15, 'A')"
+              />
+              <label class="form-check-label">A. Small</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q16"
+                id="q16b"
+                (change)="updateCompletedQuestions(15, 'B')"
+              />
+              <label class="form-check-label">B. Large</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q16"
+                id="q16c"
+                (change)="updateCompletedQuestions(15, 'C')"
+              />
+              <label class="form-check-label">C. Huge</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q16"
+                id="q16d"
+                (change)="updateCompletedQuestions(15, 'D')"
+              />
+              <label class="form-check-label">D. Tall</label>
+            </div>
+          </div>
+          <div id="question17" class="row mt-3">
+            <p>17. Fill in the blank: I ______ my homework yesterday.</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q17"
+                id="q17a"
+                (change)="updateCompletedQuestions(16, 'A')"
+              />
+              <label class="form-check-label">A. do</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q17"
+                id="q17b"
+                (change)="updateCompletedQuestions(16, 'B')"
+              />
+              <label class="form-check-label">B. did</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q17"
+                id="q17c"
+                (change)="updateCompletedQuestions(16, 'C')"
+              />
+              <label class="form-check-label">C. made</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q17"
+                id="q17d"
+                (change)="updateCompletedQuestions(16, 'D')"
+              />
+              <label class="form-check-label">D. doing</label>
+            </div>
+          </div>
+          <div id="question18" class="row mt-3">
+            <p>18. Choose the correct word: The dog is ______ than the cat.</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q18"
+                id="q18a"
+                (change)="updateCompletedQuestions(17, 'A')"
+              />
+              <label class="form-check-label">A. big</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q18"
+                id="q18b"
+                (change)="updateCompletedQuestions(17, 'B')"
+              />
+              <label class="form-check-label">B. bigger</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q18"
+                id="q18c"
+                (change)="updateCompletedQuestions(17, 'C')"
+              />
+              <label class="form-check-label">C. biggest</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q18"
+                id="q18d"
+                (change)="updateCompletedQuestions(17, 'D')"
+              />
+              <label class="form-check-label">D. more big</label>
+            </div>
+          </div>
+          <div id="question19" class="row mt-3">
+            <p>19. Which sentence is correct ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q19"
+                id="q19a"
+                (change)="updateCompletedQuestions(18, 'A')"
+              />
+              <label class="form-check-label">A. She can sings well.</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q19"
+                id="q19b"
+                (change)="updateCompletedQuestions(18, 'B')"
+              />
+              <label class="form-check-label">B. She can sing well.</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q19"
+                id="q19c"
+                (change)="updateCompletedQuestions(18, 'C')"
+              />
+              <label class="form-check-label">C. She can sings good.</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q19"
+                id="q19d"
+                (change)="updateCompletedQuestions(18, 'D')"
+              />
+              <label class="form-check-label">D. She can sing good.</label>
+            </div>
+          </div>
+          <div id="question20" class="row mt-3">
+            <p>20. What is the future tense of "eat" ?</p>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q20"
+                id="q20a"
+                (change)="updateCompletedQuestions(19, 'A')"
+              />
+              <label class="form-check-label">A. Eats</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q20"
+                id="q20b"
+                (change)="updateCompletedQuestions(19, 'B')"
+              />
+              <label class="form-check-label">B. Eaten</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q20"
+                id="q20c"
+                (change)="updateCompletedQuestions(19, 'C')"
+              />
+              <label class="form-check-label">C. Will eat</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="q20"
+                id="q20d"
+                (change)="updateCompletedQuestions(19, 'D')"
+              />
+              <label class="form-check-label">D. Eating</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end align-items-end">
+      <button class="btn btn-secondary mb-3" (click)="LogOut()">Log out</button>
+      <a href="/welcomeHome" class="btn btn-warning ms-3 mb-3">Exit</a>
+    </div>
+  </div>
+</div>

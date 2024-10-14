@@ -1,0 +1,10 @@
+<div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+    <div class="card p-5 text-center mb-5">
+        <h4>Your test results</h4>
+        <span class="text-success fw-bolder">Your score: {{ score }} / 20</span>
+    </div>
+    <div>
+        <a class="btn btn-warning" href="/home">Test Again</a>
+        <button class="btn btn-secondary ms-3" (click)="LogOut()">Log out</button>
+    </div>
+</div>
