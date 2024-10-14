@@ -43,7 +43,7 @@
       display: grid;
       justify-content: center;
       gap: 4px;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
     }
   
     .btn-number-question .btn {
@@ -60,7 +60,7 @@
         margin-left: -15px;
     }
     .question{
-        margin-top: 650px;
+        margin-top: 250px;
     }
 }
   
