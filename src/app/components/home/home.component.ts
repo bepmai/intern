@@ -71,10 +71,18 @@ export class HomeComponent implements OnInit {
   submitQuiz() {
     const modalElement = document.getElementById('confirmModal_endtime');
     if (modalElement) {
-      const confirmModal = new bootstrap.Modal(modalElement);
-      confirmModal.show();
+        const confirmModal = new bootstrap.Modal(modalElement, {
+            backdrop: 'static',
+            keyboard: false
+        });
+
+        modalElement.addEventListener('hidden.bs.modal', () => {
+            this.confirmSubmit();
+        });
+
+        confirmModal.show();
     } else {
-      console.error('Modal element not found');
+        console.error('Modal element not found');
     }
   }
 
