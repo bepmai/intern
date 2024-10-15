@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
     private examService: ExamService
   ) {}
 
-  countdownTime = 30;
+  countdownTime = 60;
   completedQuestions = 0;
   answeredQuestions = [false, false, false, false, false];
   countdownInterval: any;
@@ -71,18 +71,18 @@ export class HomeComponent implements OnInit {
   submitQuiz() {
     const modalElement = document.getElementById('confirmModal_endtime');
     if (modalElement) {
-        const confirmModal = new bootstrap.Modal(modalElement, {
-            backdrop: 'static',
-            keyboard: false
-        });
+      const confirmModal = new bootstrap.Modal(modalElement, {
+        backdrop: 'static',
+        keyboard: false,
+      });
 
-        modalElement.addEventListener('hidden.bs.modal', () => {
-            this.confirmSubmit();
-        });
+      modalElement.addEventListener('hidden.bs.modal', () => {
+        this.confirmSubmit();
+      });
 
-        confirmModal.show();
+      confirmModal.show();
     } else {
-        console.error('Modal element not found');
+      console.error('Modal element not found');
     }
   }
 
