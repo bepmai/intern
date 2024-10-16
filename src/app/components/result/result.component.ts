@@ -7,15 +7,19 @@ import { AuthService } from '../../services/auth.service';
   standalone: true,
   imports: [],
   templateUrl: './result.component.html',
-  styleUrl: './result.component.scss'
+  styleUrl: './result.component.scss',
 })
 export class ResultComponent {
   score: number | null = null;
 
-  constructor(private route: ActivatedRoute, private authService:AuthService, private router:Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       this.score = +params['score'] || 0;
     });
   }
